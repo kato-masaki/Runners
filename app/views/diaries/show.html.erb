@@ -1,0 +1,12 @@
+<div class="post-body">
+  <%= attachment_image_tag @diary, :image %>
+  <p>【距離】<%= @diary.distance %></p>
+  <p>【タイム】<%= @diary.hour %>:<%= @diary.minute %>:<%= @diary.second %></p>
+  <p>【ペース】<%= @diary.pace_minute %>:<%= @diary.pace_second %></p>
+  <p>【説明】<%= @diary.caption %></p>
+  <p>ユーザーネーム：<%= @diary.user.name %></p>
+  <p>投稿日時：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @diary.user == current_user %>
+    <%= link_to "削除", diary_path(@diary), method: :delete %>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<% @diaries.each do |diary| %>
+<div>
+  <%= link_to diary_path(diary.id) do %>
+    <%= attachment_image_tag diary, :image %>
+  <% end %>
+  <p>投稿ユーザー画像：
+  <p>【距離】<%= diary.distance %></p>
+  <p>【タイム】<%= diary.hour %>:<%= diary.minute %>:<%= diary.second %></p>
+  <p>【ペース】<%= diary.pace_minute %>:<%= diary.pace_second %></p>
+  <p>【説明】<%= diary.caption %></p>
+  <p>ユーザーネーム：<%= diary.user.name %></p>
+</div>
+<% end %>
