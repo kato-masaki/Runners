@@ -9,4 +9,38 @@
   <% if @diary.user == current_user %>
     <%= link_to "削除", diary_path(@diary), method: :delete %>
   <% end %>
+  <% if @diary.favorited_by?(current_user) %>
+    <p>
+      <%= link_to diary_favorites_path(@diary), method: :delete do %>
+        ★<%= @diary.favorites.count %> GOOD
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to diary_favorites_path(@diary), method: :post do %>
+        ☆<%= @diary.favorites.count %> GOOD
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+<div class="comments">
+<p>コメント件数：<%= @diary.diary_comments.count %></p>
+<% @diary.diary_comments.each do |diary_comment| %>
+  <p><%#= image_tag('sample-author1.jpg') %></p>
+  <%= diary_comment.user.name %>
+  <%= diary_comment.created_at.strftime('%Y/%m/%d') %><%= diary_comment.comment %>
+  <% if diary_comment.user == current_user %>
+  <div class="comment-delete">
+    <%= link_to "削除", diary_diary_comment_path(diary_comment.diary, diary_comment), method: :delete %>
+  </div>
+  <% end %>
+
+<% end %>
+</div>
+<div class="new-comment">
+<%= form_with(model:[@diary, @diary_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
 </div>

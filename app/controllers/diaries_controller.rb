@@ -12,11 +12,12 @@ class DiariesController < ApplicationController
   end
 
   def index
-    @diaries = Diary.all
+    @diaries = Diary.page(params[:page]).per(5).reverse_order
   end
 
   def show
     @diary = Diary.find(params[:id])
+    @diary_comment = DiaryComment.new
   end
 
   def edit

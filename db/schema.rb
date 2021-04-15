@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_162026) do
+ActiveRecord::Schema.define(version: 2021_04_15_070724) do
 
   create_table "diaries", force: :cascade do |t|
     t.integer "user_id"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(version: 2021_04_14_162026) do
     t.integer "second"
     t.integer "pace_minute"
     t.integer "pace_second"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "diary_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "diary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "diary_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

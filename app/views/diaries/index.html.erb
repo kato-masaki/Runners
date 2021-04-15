@@ -9,5 +9,7 @@
   <p>【ペース】<%= diary.pace_minute %>:<%= diary.pace_second %></p>
   <p>【説明】<%= diary.caption %></p>
   <p>ユーザーネーム：<%= diary.user.name %></p>
+  <p><%= link_to "#{diary.diary_comments.count} コメント", diary_path(diary.id) %></p>
 </div>
 <% end %>
+<%= paginate @diaries %>
