@@ -3,7 +3,8 @@
   <%= link_to diary_path(diary.id) do %>
     <%= attachment_image_tag diary, :image %>
   <% end %>
-  <p>投稿ユーザー画像：
+  <p>投稿ユーザー画像：<%= attachment_image_tag diary.user, :profile_image, :fill, 60, 60 %>
+  <!--, fallback: "no_image.jpg"-->
   <p>【距離】<%= diary.distance %></p>
   <p>【タイム】<%= diary.hour %>:<%= diary.minute %>:<%= diary.second %></p>
   <p>【ペース】<%= diary.pace_minute %>:<%= diary.pace_second %></p>

@@ -27,7 +27,8 @@
 <div class="comments">
 <p>コメント件数：<%= @diary.diary_comments.count %></p>
 <% @diary.diary_comments.each do |diary_comment| %>
-  <p><%#= image_tag('sample-author1.jpg') %></p>
+  <p><%= attachment_image_tag diary_comment.user, :profile_image, :fill, 60, 60 %></p>
+  <!--, fallback: "no_image.jpg"-->
   <%= diary_comment.user.name %>
   <%= diary_comment.created_at.strftime('%Y/%m/%d') %><%= diary_comment.comment %>
   <% if diary_comment.user == current_user %>
