@@ -1,8 +1,8 @@
 <div class="post-body">
   <%= attachment_image_tag @diary, :image %>
-  <p>【距離】<%= @diary.distance %></p>
+  <p>【距離】<%= @diary.distance %>km</p>
   <p>【タイム】<%= @diary.hour %>:<%= @diary.minute %>:<%= @diary.second %></p>
-  <p>【ペース】<%= @diary.pace_minute %>:<%= @diary.pace_second %></p>
+  <p>【ペース】<%= @diary.pace_minute %>:<%= @diary.pace_second %>/km</p>
   <p>【説明】<%= @diary.caption %></p>
   <p>ユーザーネーム：<%= @diary.user.name %></p>
   <p>投稿日時：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>

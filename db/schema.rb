@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_111524) do
+ActiveRecord::Schema.define(version: 2021_04_16_055719) do
 
   create_table "diaries", force: :cascade do |t|
     t.integer "user_id"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 2021_04_15_111524) do
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "diary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "start_time"
+    t.float "distance"
+    t.integer "hour"
+    t.integer "minute"
+    t.integer "second"
+    t.integer "pace_minute"
+    t.integer "pace_second"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
