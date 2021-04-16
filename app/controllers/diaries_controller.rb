@@ -38,4 +38,8 @@ class DiariesController < ApplicationController
     params.require(:diary).permit(:image, :caption, :distance, :hour, :minute, :second, :pace_minute, :pace_second)
   end
 
+  def self.search_for(content)
+    Diary.where('name LIKE ?', '%' + content + '%')
+  end
+
 end
