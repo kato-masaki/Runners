@@ -12,7 +12,7 @@ class DiariesController < ApplicationController
   end
 
   def index
-    @diaries = Diary.page(params[:page]).per(5).reverse_order
+    @diaries = Diary.page(params[:page]).per(9).reverse_order
   end
 
   def show

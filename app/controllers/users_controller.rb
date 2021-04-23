@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @diaries = @user.diaries.page(params[:page]).per(5).reverse_order
+    @diaries = @user.diaries.page(params[:page]).per(9).reverse_order
   end
 
   def edit

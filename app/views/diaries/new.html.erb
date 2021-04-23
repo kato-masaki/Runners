@@ -1,13 +1,50 @@
-<h1>ダイアリー投稿フォーム</h1>
-<%= form_with model: @diary, local:true do |f| %>
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
-  <h4>距離</h4>
-  <%= f.text_field :distance %>km
-  <h4>タイム</h4>
-  <%= f.number_field :hour %>:<%= f.number_field :minute %>:<%= f.number_field :second %>
-  <h4>ペース</h4>
-  <%= f.number_field :pace_minute %>:<%= f.number_field :pace_second %>
-  <%= f.text_area :caption, placeholder: 'コメントを書いてください' %>
-  <%= f.submit '投稿' %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center my-4">
+    <h2>ダイアリー投稿フォーム</h2>
+  </div>
+    
+  <div class="row justify-content-center">
+    <%= form_with model: @diary, local:true do |f| %>
+    
+    <div class="form-group row">
+      <h5 class="col-md-3">画像</h5>
+      <div class="col-md-7">
+        <%= f.attachment_field :image %>
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <h5 class="col-md-3">距離</h5>
+      <div class="col-md-7">
+        <%= f.text_field :distance, size: 7 %> km
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <h5 class="col-md-3">時間</h5>
+      <div class="col-md-7">
+        <%= f.text_field :hour, size: 7 %> : <%= f.text_field :minute, size: 7 %> : <%= f.text_field :second, size: 7 %>
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <h5 class="col-md-3">ペース</h5>
+      <div class="col-md-7">
+        <%= f.text_field :pace_minute, size: 7 %> : <%= f.text_field :pace_second, size: 7 %> / km
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <div class="col-md-12">
+        <%= f.text_area :caption, size: "80x7", placeholder: 'コメントを書いてください' %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <%= f.submit '投稿', class: "btn btn-dark btn-lg btn-block" %>
+    </div>
+    
+    <% end %>
+　</div>
+
+</div>

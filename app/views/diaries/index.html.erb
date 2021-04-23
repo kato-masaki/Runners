@@ -1,16 +1,72 @@
-<% @diaries.each do |diary| %>
-<div>
-  <%= link_to diary_path(diary.id) do %>
-    <%= attachment_image_tag diary, :image %>
+
+<div class="container" style="width: 1000px;">
+
+  <!--検索機能-->
+    <div class="row justify-content-end" style="margin: 20px 0;">
+      <% if user_signed_in? %>
+      <div class="search-form">
+        <%= form_with url:search_path, method: :get, local:true do |f| %>
+        <%= f.text_field :content %>
+        <%= f.select :model, options_for_select({ "ユーザーネーム" => "user", "ダイアリー" => "diary" }) %>
+        <%= f.submit '検索' %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+  <h2 class="row justify-content-center border-bottom">新着</h2>
+
+  <div class="row">
+    <% @diaries.each do |diary| %>
+    <div class="d-flex flex-wrap">
+
+      <!--ダイアリー-->
+      <div class="card m-3" style="width: 300px; height: 480px;">
+        <%= link_to diary_path(diary.id) do %>
+        <%= attachment_image_tag diary, :image, :fill, 300, 200 %>
+        <% end %>
+
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              距離　　　<%= diary.distance %> km<br>
+              時間　　　<%= sprintf("%02d", diary.hour) %> : <%= sprintf("%02d", diary.minute) %> : <%= sprintf("%02d", diary.second) %><br>
+              ペース　　<%= sprintf("%02d", diary.pace_minute) %> : <%= sprintf("%02d", diary.pace_second) %> / km
+            </li>
+          </ul>
+
+          <p class="d-inline-block text-truncate" style="max-width: 250px;"><%= diary.caption %></p>
+          <p>
+            <%= link_to user_path(diary.user) do %>
+            <%= attachment_image_tag diary.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "mt-3 rounded-circle"; %>
+            <% end %>
+          </p>
+          <p>
+            <% if diary.favorited_by?(current_user) %>
+              <%= link_to diary_favorites_path(diary), method: :delete, loclal: true do %>
+                <i class="far fa-thumbs-up", style="color: green;"></i>
+              <% end %>
+                <%= diary.favorites.count %>good
+            <% else %>
+              <%= link_to diary_favorites_path(diary), method: :post, local: true do %>
+                <i class="far fa-thumbs-up", style="color: black;"></i>
+              <% end %>
+                <%= diary.favorites.count %>good
+            <% end %>
+
+            <%= diary.diary_comments.count %>コメント
+
+            <%=link_to "詳細", diary_path(diary.id) %>
+          </p>
+
+        </div>
+      </div>
+    </div>
   <% end %>
-  <p>投稿ユーザー画像：<%= attachment_image_tag diary.user, :profile_image, :fill, 60, 60 %>
-  <!--, fallback: "no_image.jpg"-->
-  <p>【距離】<%= diary.distance %></p>
-  <p>【タイム】<%= diary.hour %>:<%= diary.minute %>:<%= diary.second %></p>
-  <p>【ペース】<%= diary.pace_minute %>:<%= diary.pace_second %></p>
-  <p>【説明】<%= diary.caption %></p>
-  <p>ユーザーネーム：<%= diary.user.name %></p>
-  <p><%= link_to "#{diary.diary_comments.count} コメント", diary_path(diary.id) %></p>
 </div>
-<% end %>
-<%= paginate @diaries %>
+
+<div class="row justify-content-center my-5">
+  <%= paginate @diaries %>
+</div>
+
+</div>

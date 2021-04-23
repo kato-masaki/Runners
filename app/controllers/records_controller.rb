@@ -11,7 +11,7 @@ class RecordsController < ApplicationController
     @record = Record.new(record_params)
     @record.user_id = current_user.id
     if @record.save
-      redirect_to records_path, notice: "記録しました"
+      redirect_to records_path, notice: "記録しました。"
     else
       @records = Record.where(user_id: current_user.id)
       render 'index'
@@ -25,7 +25,7 @@ class RecordsController < ApplicationController
   def update
     @record = Record.find(params[:id])
     if @record.update(record_params)
-      redirect_to records_path, notice: "更新しました"
+      redirect_to records_path, notice: "更新しました。"
     else
       render 'edit'
     end

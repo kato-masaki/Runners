@@ -1,13 +1,49 @@
-<h2>プロフィール編集</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60 %>
-  <!--, fallback: "no_image.jpg"-->
-  <label for="inputImage">ProfileImage</label>
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>  <%= f.submit "変更を保存" %>
-  <label for="inputName">Introduction</label>
-  <%= f.text_field :introduction, autofocus: true, id:"inputName", placeholder:"自己紹介"%>
-  <label for="inputName">Residence</label>
-  <%= f.text_field :residence, autofocus: true, id:"inputName", placeholder:"居住地"%>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center my-4">
+    <h2>プロフィール編集</h2>
+  </div>
+
+  <div class="row justify-content-center">
+    <%= form_with model:@user, local:true do |f| %>
+
+    <div class="form-group row justify-content-center">
+    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle"; %>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-md-5"></div>
+      <div class="col-md-7" >
+        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <h5 class="col-md-5">名前</h5>
+      <div class="col-md-7">
+        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <h5 class="col-md-5">居住地</h5>
+      <div class="col-md-7">
+        <%= f.text_field :residence, autofocus: true, id:"inputName", placeholder:"居住地"%>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <h5 class="col-md-5">自己紹介</h5>
+      <div class="col-md-7">
+        <%= f.text_area :introduction, size: "50x4", autofocus: true, id:"inputName", placeholder:"自己紹介を書いてください"%>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= f.submit '変更を保存', class: "btn btn-dark btn-lg btn-block" %>
+    </div>
+
+    <% end %>
+　</div>
+
+</div>
+
