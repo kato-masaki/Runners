@@ -1,0 +1,3 @@
+$("#diary_<%= @diary.id %> .comments-count").html("<%= @diary.diary_comments.count %>コメント");
+$(".comments_index").html("<%= j(render 'diary_comments/index', diary: @diary) %>");
+$("#diary_comment_comment").val("");
