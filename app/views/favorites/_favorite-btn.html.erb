@@ -1,0 +1,12 @@
+
+ <% if diary.favorited_by?(current_user) %>
+              <%= link_to diary_favorites_path(diary), method: :delete, remote: true do %>
+                <i class="far fa-thumbs-up", style="color: green;"></i>
+              <% end %>
+                <%= diary.favorites.count %>good
+            <% else %>
+              <%= link_to diary_favorites_path(diary), method: :post, remote: true do %>
+                <i class="far fa-thumbs-up", style="color: black;"></i>
+              <% end %>
+                <%= diary.favorites.count %>good
+            <% end %>
