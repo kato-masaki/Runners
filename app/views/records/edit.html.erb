@@ -14,13 +14,13 @@
     <%= f.text_field :hour, size: 7 %> : <%= f.text_field :minute, size: 7 %> : <%= f.text_field :second, size: 7 %>
     <h5 class="mt-3">ペース</h5>
     <%= f.text_field :pace_minute, size: 7 %> : <%= f.text_field :pace_second, size: 7 %> / km
-  </div>
-
-  <div class="row justify-content-center mt-4">
-    <!--要修正-->
-    <%= link_to "戻る", records_path, class: "far fa-arrow-alt-circle-left nav-link text-dark" %>
-    <%= f.submit "更新",class: "mx-5" %>
-    <%= link_to "削除", record_path(@record), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger" %>
+    <div class="d-flex justify-content-around mt-4">
+    <%= f.submit "更新" %>
+    <%= link_to "削除", record_path(@record), method: :delete, class: "btn btn-sm btn-danger"; %>
+    </div>
+    <div class="mt-4">
+      <%= link_to "戻る", records_path, class: "far fa-arrow-alt-circle-left nav-link text-dark"; %>
+    </div>
     <% end %>
   </div>
 
