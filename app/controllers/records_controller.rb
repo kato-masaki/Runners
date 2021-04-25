@@ -4,7 +4,6 @@ class RecordsController < ApplicationController
   def index
     @record = Record.new
     @records = Record.where(user_id: current_user.id)
-    # @record_detail = Record.find(params[:id])
   end
   
   def create

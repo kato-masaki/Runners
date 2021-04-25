@@ -15,7 +15,7 @@
     <h5 class="mt-3">ペース</h5>
     <%= f.text_field :pace_minute, size: 7 %> : <%= f.text_field :pace_second, size: 7 %> / km
     <div class="d-flex justify-content-around mt-4">
-    <%= f.submit "更新" %>
+    <%= f.submit "更新", class: "btn btn-sm btn-dark" %>
     <%= link_to "削除", record_path(@record), method: :delete, class: "btn btn-sm btn-danger"; %>
     </div>
     <div class="mt-4">
