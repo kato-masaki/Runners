@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render 'layouts/errors', obj: @user %>
   <div class="row justify-content-center my-4">
     <h2>プロフィール編集</h2>
   </div>
@@ -37,16 +38,17 @@
         <%= f.text_area :introduction, size: "50x4", autofocus: true, id:"inputName", placeholder:"自己紹介を書いてください"%>
       </div>
     </div>
-
-    <div class="row">
-      <%= f.submit '変更を保存', class: "btn btn-dark btn-lg btn-block" %>
+    
+    <div class="d-flex justify-content-around mt-4">
+      <%= link_to "戻る", user_path(@user), class: "far fa-arrow-alt-circle-left nav-link text-dark"; %>
+      <%= f.submit '変更を保存', class: "btn btn-dark btn-sm text-right" %>
     </div>
 
     <% end %>
 　</div>
-　
+
 　<div class="row justify-content-end">
-　  <%= link_to '退会', unsubscribe_user_path(@user), class: "btn btn-danger"; %>
+　  <%= link_to '退会', unsubscribe_user_path(@user), class: "btn btn-danger btn-sm"; %>
 　</div>
 
 </div>

@@ -2,15 +2,15 @@
   <div class="row justify-content-center">
 
     <!--投稿詳細-->
-    <div id="diary_<%= @diary.id %>" class="card m-3" style="width: 60%; height: 100%;">
-      <%= attachment_image_tag @diary, :image, :fill, 300, 200 %>
+    <div id="diary_<%= @diary.id %>" class="card m-3" style="width: 100%; height: 100%;">
+      <%= attachment_image_tag @diary, :image %>
       <div class="card-body">
 
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             距離　　　<%= @diary.distance %> km<br>
             時間　　　<%= sprintf("%02d", @diary.hour) %> : <%= sprintf("%02d", @diary.minute) %> : <%= sprintf("%02d", @diary.second) %><br>
-            ペース　　<%= sprintf("%02d", @diary.pace_minute) %> : <%= sprintf("%02d", @diary.pace_second) %> / km
+            ペース　　<%= sprintf("%02d", @diary.pace_minute) %>' <%= sprintf("%02d", @diary.pace_second) %>" / km
           </li>
         </ul><hr>
 

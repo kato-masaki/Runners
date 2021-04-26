@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render 'layouts/errors', obj: @record %>
   <div class="row mt-4">
     <div class="col-md-4">
 
@@ -10,24 +11,24 @@
       <h5 class="mt-3">タイム</h5>
       <%= f.text_field :hour, size: 7 %> : <%= f.text_field :minute, size: 7 %> : <%= f.text_field :second, size: 7 %>
       <h5 class="mt-3">ペース</h5>
-      <%= f.text_field :pace_minute, size: 7 %> : <%= f.text_field :pace_second, size: 7 %> / km
+      <%= f.text_field :pace_minute, size: 7 %> ' <%= f.text_field :pace_second, size: 7 %> " / km
       <%= f.submit '記録', class: "btn btn-dark btn-sm btn-block mt-3" %>
       <% end %>
 
     </div>
-    
+
     <div class="col-md-7 col-md-offset-1">
-      
+
       <%= month_calendar events: @records do |date, records| %>
       <%= date.day %>
       <% records.each do |record| %>
       <%= link_to record.start_time.strftime("%H:%M"), edit_record_path(record) %>
       <%= record.distance %>km
       <%= sprintf("%02d", record.hour) %>:<%= sprintf("%02d", record.minute) %>:<%= sprintf("%02d", record.second) %>
-      <%= sprintf("%02d", record.pace_minute) %>:<%= sprintf("%02d", record.pace_second) %>/km
+      <%= sprintf("%02d", record.pace_minute) %>'<%= sprintf("%02d", record.pace_second) %>"/km
       <% end %>
       <% end %>
-      
+
     </div>
 
   </div>

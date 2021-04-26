@@ -12,8 +12,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      redirect_to user_path(@user.id), notice: "更新しました。"
+    else
+      render 'edit'
+    end
   end
 
   def unsubscribe
@@ -27,6 +30,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction, :residence)
   end
@@ -37,5 +41,4 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
   end
-
 end

@@ -1,5 +1,4 @@
 class DiariesController < ApplicationController
-
   def new
     @diary = Diary.new
   end
@@ -7,8 +6,11 @@ class DiariesController < ApplicationController
   def create
     @diary = Diary.new(diary_params)
     @diary.user_id = current_user.id
-    @diary.save
-    redirect_to diaries_path
+    if @diary.save
+      redirect_to diaries_path, notice: "投稿しました。"
+    else
+      render 'new'
+    end
   end
 
   def index
@@ -41,5 +43,4 @@ class DiariesController < ApplicationController
   def self.search_for(content)
     Diary.where('name LIKE ?', '%' + content + '%')
   end
-
 end

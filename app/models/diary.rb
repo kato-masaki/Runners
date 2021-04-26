@@ -1,5 +1,4 @@
 class Diary < ApplicationRecord
-
   belongs_to :user
   attachment :image
   has_many :diary_comments, dependent: :destroy
@@ -12,7 +11,7 @@ class Diary < ApplicationRecord
   def self.search_for(content)
     Diary.where('caption LIKE ?', '%' + content + '%')
   end
-  
+
   validates :image, presence: true
   validates :distance, presence: true
   validates :hour, presence: true
@@ -21,5 +20,4 @@ class Diary < ApplicationRecord
   validates :pace_minute, presence: true
   validates :pace_second, presence: true
   validates :caption, presence: true
-
 end

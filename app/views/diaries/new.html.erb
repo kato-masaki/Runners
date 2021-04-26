@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render 'layouts/errors', obj: @diary %>
   <div class="row justify-content-center my-4">
     <h2>ダイアリー投稿フォーム</h2>
   </div>
@@ -30,7 +31,7 @@
     <div class="form-group row">
       <h5 class="col-md-3">ペース</h5>
       <div class="col-md-7">
-        <%= f.text_field :pace_minute, size: 7 %> : <%= f.text_field :pace_second, size: 7 %> / km
+        <%= f.text_field :pace_minute, size: 7 %> ' <%= f.text_field :pace_second, size: 7 %> " / km
       </div>
     </div>
     

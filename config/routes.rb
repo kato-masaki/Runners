@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   devise_for :users
 
   root 'homes#top'
@@ -14,7 +12,7 @@ Rails.application.routes.draw do
     member do
       get :unsubscribe
     end
-    resource :relationships,only: [:create,:destroy]
+    resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
@@ -26,5 +24,4 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
-
 end

@@ -32,8 +32,8 @@ class User < ApplicationRecord
     User.where('name LIKE ?', '%' + content + '%')
   end
 
-  validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
-  validates :introduction, length: {maximum: 100}
+  validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true
+  validates :introduction, length: { maximum: 100 }
 
   def self.guest
     find_or_create_by!(email: 'guest@guest.com') do |user|
@@ -41,5 +41,4 @@ class User < ApplicationRecord
       user.name = "ゲスト"
     end
   end
-
 end

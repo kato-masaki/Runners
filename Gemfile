@@ -73,7 +73,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 # ページング機能
-gem 'kaminari','~> 1.2.1'
+gem 'kaminari', '~> 1.2.1'
 
 # カレンダー機能
 gem 'simple_calendar', '~> 2.0'
