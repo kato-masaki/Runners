@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザ情報
+      diary:
+      record:
+    attributes:
+      user:
+        name: 名前
+      diary:
+        image: 写真
+        caption: コメント
+        distance: 距離
+        hour: 時間
+        minute: 時間(分)
+        second: 時間(秒)
+        pace_minute: ペース(分)
+        pace_second: ペース(秒)
+      record:
+        distance: 距離
+        hour: 時間
+        minute: 時間(分)
+        second: 時間(秒)
+        pace_minute: ペース(分)
+        pace_second: ペース(秒)
