@@ -25,6 +25,7 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li><%= link_to " 投稿一覧",diaries_path,class: "fas fa-list nav-link text-light" %></li>
+          <li><%= link_to " TOP3",weekly_rank_path,class: "fas fa-thumbs-up nav-link text-light" %></li>
           <li><%= link_to " 投稿",new_diary_path,class: "fas fa-plus-circle nav-link text-light" %></li>
           <li><%= link_to " 記録",records_path,class: "fas fa-pen nav-link text-light" %></li>
           <li><%= link_to " HOME", user_path(current_user),class: "fas fa-user nav-link text-light" %></li>

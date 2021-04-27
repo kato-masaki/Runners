@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :diary_comments, only: [:create, :destroy]
   end
 
+  get 'weekly_rank' => 'diaries#weekly_rank', as: 'weekly_rank'
+
   resources :users, only: [:show, :edit, :update, :destroy] do
     member do
       get :unsubscribe
