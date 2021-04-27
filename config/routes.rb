@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   resources :diaries do
     resource :favorites, only: [:create, :destroy]
     resources :diary_comments, only: [:create, :destroy]
+    resource :bookmarks, only: [:create, :destroy]
   end
 
   get 'weekly_rank' => 'diaries#weekly_rank', as: 'weekly_rank'
+  
+  get 'bookmarks' => 'bookmarks#index', as: 'bookmarks'
 
   resources :users, only: [:show, :edit, :update, :destroy] do
     member do

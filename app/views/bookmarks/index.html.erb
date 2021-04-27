@@ -1,0 +1,7 @@
+<div class="container mt-5" style="width: 1000px;">
+
+  <h2 class="row justify-content-center border-bottom">ブックマーク一覧</h2>
+  <%= link_to "戻る", user_path(current_user), class: "far fa-arrow-alt-circle-left nav-link text-dark"; %>
+    <%= render "diaries/index", diaries: @bookmark_list %>
+
+</div>

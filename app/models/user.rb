@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :diary_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :records, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   attachment :profile_image
 

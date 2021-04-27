@@ -1,0 +1,9 @@
+<% if diary.bookmarked_by?(current_user) %>
+   <%= link_to diary_bookmarks_path(diary), method: :delete, remote: true do %>
+     <i class="far fa-bookmark", style="color: green;"></i>
+   <% end %>
+<% else %>
+  <%= link_to diary_bookmarks_path(diary), method: :post, remote: true do %>
+    <i class="far fa-bookmark", style="color: black;"></i>
+  <% end %>
+<% end %>

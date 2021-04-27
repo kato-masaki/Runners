@@ -29,7 +29,9 @@
           <p class="comments-count">
             <%= @diary.diary_comments.count %>コメント
           </p>
-
+          <p class="bookmark-btn">
+            <%= render "bookmarks/bookmark-btn", diary: @diary %>
+          </p>
           <p>投稿日時：<%= @diary.created_at.strftime('%Y/%m/%d') %></p>
           <% if @diary.user == current_user %>
             <%= link_to "削除", diary_path(@diary), method: :delete, class: "btn btn-danger" %>

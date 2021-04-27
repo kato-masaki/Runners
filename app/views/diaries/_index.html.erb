@@ -31,8 +31,12 @@
               <%= diary.diary_comments.count %>コメント
             </div>
             
+            <div class="bookmark-btn">
+              <%= render "bookmarks/bookmark-btn", diary: diary %>
+            </div>
+            
             <div>
-              <%= link_to "詳細", diary_path(diary.id) %>
+              <%= link_to "詳細", diary_path(diary.id), class: "text-dark"; %>
             </div>
           </div>
 
