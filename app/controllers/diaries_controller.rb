@@ -33,7 +33,7 @@ class DiariesController < ApplicationController
     @diary.destroy
     redirect_to diaries_path
   end
-  
+
   def weekly_rank
     @ranks = Diary.last_week
   end

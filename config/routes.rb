@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   get 'weekly_rank' => 'diaries#weekly_rank', as: 'weekly_rank'
-  
+
   get 'bookmarks' => 'bookmarks#index', as: 'bookmarks'
 
   resources :users, only: [:show, :edit, :update, :destroy] do
