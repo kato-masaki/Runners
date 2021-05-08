@@ -32,8 +32,8 @@
       <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-outline-dark"; %>
     <% end %>
   <% else %>
-    <%= link_to " ブックマーク一覧", bookmarks_path, class: "fas fa-bookmark"; %><br>
-    <%= link_to " プロフィール編集",edit_user_path(@user), class: "fas fa-user-cog"; %>
+    <%= link_to " ブックマーク一覧", bookmarks_path, class: "far fa-bookmark"; %><br>
+    <%= link_to " プロフィール編集",edit_user_path(@user), class: "far fa-edit"; %>
   <% end %>
 </div>
 <hr>
