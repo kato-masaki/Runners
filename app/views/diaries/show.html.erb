@@ -40,18 +40,18 @@
 
           <!--コメントエリア-->
           <div class="diary_comments">
-            
+
             <div class="comments_index card-text">
               <%= render "diary_comments/index", diary: @diary %>
             </div>
             <hr>
-            
+
             <!--コメント入力フォーム-->
              <div class="new-comment card-text">
                <%= form_with(model:[@diary, @diary_comment]) do |f| %>
                <div class="form-group">
                  <label for="exampleFormControlTextarea1">コメントする</label>
-                 <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+                 <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントを書いてください" %>
                </div>
               <%= f.submit "送信する", class:"btn btn-lg btn-dark mt-2 float-right" %>
               <% end %>
