@@ -20,13 +20,16 @@ class Diary < ApplicationRecord
   def self.last_week
     @ranks = Diary.joins(:favorites).where(diaries: { created_at: 0.days.ago.prev_week..0.days.ago.prev_week(:sunday) }).group(:id).order("count(*) desc").limit(3)
   end
-
-  validates :image, presence: true
-  validates :distance, presence: true
-  validates :hour, presence: true
-  validates :minute, presence: true
-  validates :second, presence: true
-  validates :pace_minute, presence: true
-  validates :pace_second, presence: true
-  validates :caption, presence: true
+  
+  with_options presence: true do
+    validates :image
+    validates :distance
+    validates :hour
+    validates :minute
+    validates :second
+    validates :pace_minute
+    validates :pace_second
+    validates :caption
+  end
+  
 end
