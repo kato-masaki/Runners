@@ -1,10 +1,13 @@
 class Record < ApplicationRecord
   belongs_to :user
-
-  validates :distance, presence: true
-  validates :hour, presence: true
-  validates :minute, presence: true
-  validates :second, presence: true
-  validates :pace_minute, presence: true
-  validates :pace_second, presence: true
+  
+  with_options presence: true do
+    validates :distance
+    validates :hour
+    validates :minute
+    validates :second
+    validates :pace_minute
+    validates :pace_second
+  end
+  
 end
