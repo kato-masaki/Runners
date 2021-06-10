@@ -14,7 +14,7 @@ class Diary < ApplicationRecord
   end
 
   def self.search_for(content)
-    Diary.where('caption LIKE ?', '%' + content + '%')
+    where('caption LIKE ?', '%' + content + '%')
   end
 
   def self.last_week
