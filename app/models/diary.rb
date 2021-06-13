@@ -19,7 +19,7 @@ class Diary < ApplicationRecord
 
   def self.last_week
     now = Time.current
-    @ranks = joins(:favorites).where(diaries: { created_at: now.prev_week..now.prev_week(:sunday) }).group(:id).order("count(*) desc").limit(3)
+    joins(:favorites).where(diaries: { created_at: now.prev_week..now.prev_week(:sunday) }).group(:id).order("count(*) desc").limit(3)
   end
   
   with_options presence: true do
