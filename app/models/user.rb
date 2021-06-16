@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def self.search_for(content)
-    User.where('name LIKE ?', '%' + content + '%')
+    where('name LIKE ?', '%' + content + '%')
   end
 
   validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true
