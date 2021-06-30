@@ -7,7 +7,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @diary = Diary.find(params[:diary_id])
-    bookmark = current_user.bookmarks.find_by(diary_id: @diary.id)
+    bookmark = current_user.bookmarks.find_by_diary_id(@diary.id)
     bookmark.destroy
   end
 
