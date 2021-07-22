@@ -28,6 +28,10 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+  
+  def me?(user_id)
+    id === user_id
+  end
 
   def self.search_for(content)
     where('name LIKE ?', '%' + content + '%')
