@@ -33,12 +33,19 @@
     </div>
 
     <div class="form-group row">
+      <h5 class="col-md-5">職業</h5>
+      <div class="col-md-7">
+        <%= f.text_field :occupation, autofocus: true, id:"inputName", placeholder:"職業"%>
+      </div>
+    </div>
+
+    <div class="form-group row">
       <h5 class="col-md-5">自己紹介</h5>
       <div class="col-md-7">
         <%= f.text_area :introduction, size: "50x4", autofocus: true, id:"inputName", placeholder:"自己紹介を書いてください"%>
       </div>
     </div>
-    
+
     <div class="d-flex justify-content-around mt-4">
       <%= link_to "戻る", user_path(@user), class: "far fa-arrow-alt-circle-left nav-link text-dark"; %>
       <%= f.submit '変更を保存', class: "btn btn-dark btn-sm text-right" %>
