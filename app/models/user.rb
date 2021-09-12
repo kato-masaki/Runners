@@ -39,6 +39,7 @@ class User < ApplicationRecord
 
   validates :name, length: { maximum: 20, minimum: 2 }, uniqueness: true
   validates :introduction, length: { maximum: 100 }
+  validates :occupation, length: { maximum: 20 }
 
   def self.guest
     find_or_create_by!(email: 'guest@guest.com') do |user|
