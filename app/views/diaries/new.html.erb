@@ -24,14 +24,14 @@
     <div class="form-group row">
       <h5 class="col-md-3">時間</h5>
       <div class="col-md-7">
-        <%= f.text_field :hour, size: 7, placeholder: '0' %> : <%= f.text_field :minute, size: 7, placeholder: '30' %> : <%= f.text_field :second, size: 7, placeholder: '0' %>
+        <%= f.text_field :hour, size: 7, placeholder: '00' %> : <%= f.text_field :minute, size: 7, placeholder: '30' %> : <%= f.text_field :second, size: 7, placeholder: '00' %>
       </div>
     </div>
 
     <div class="form-group row">
       <h5 class="col-md-3">ペース</h5>
       <div class="col-md-7">
-        <%= f.text_field :pace_minute, size: 7 %> ' <%= f.text_field :pace_second, size: 7 %> " / km
+        <%= f.text_field :pace_minute, size: 7, placeholder: '06' %> ' <%= f.text_field :pace_second, size: 7, placeholder: '00' %> " / km
       </div>
     </div>
 
