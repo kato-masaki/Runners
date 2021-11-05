@@ -7,6 +7,11 @@ describe '投稿のテスト' do
     before do
       visit diaries_new_path
     end
+    context '表示の確認' do
+      it '投稿ボタンが表示されているか' do
+        expect(page).to have_button '投稿'
+      end
+    end
     context '投稿処理のテスト' do
       it '投稿後のリダイレクト先は正しいか' do
         fill _in 'diary[caption]', with: Faker::Lorem.characters(number:30)
