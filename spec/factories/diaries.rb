@@ -7,5 +7,6 @@ FactoryBot.define do
     second { Faker::Number.number(2) }
     pace_minute { Faker::Number.number(2) }
     pace_second { Faker::Number.number(2) }
+    user
   end
 end
