@@ -2,12 +2,14 @@
 
 require 'rails_helper'
 
-describe '投稿のテスト' do
   describe '投稿画面(diaries_new_path)のテスト' do
     before do
       visit diaries_new_path
     end
     context '表示の確認' do
+      it 'diaries_new_pathが"/diaries/new"であるか' do
+        expect(current_path).to eq('/diaries/new')
+      end
       it '投稿ボタンが表示されているか' do
         expect(page).to have_button '投稿'
       end
@@ -26,4 +28,3 @@ describe '投稿のテスト' do
       end
     end
   end
-end
