@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :diary do
+    image_id { Faker::Number.number(2) }
     caption { Faker::Lorem.characters(number:30) }
     distance { Faker::Number.number(2) }
     hour { Faker::Number.number(2) }
