@@ -2,6 +2,17 @@
 
 require 'rails_helper'
 
+describe 'ユーザログイン後のテスト' do
+  let(:user) { create(:user) }
+  let!(:diary) { create(:diary, user: user) }
+  
+  before do
+    visit new_user_session_path
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    click_button 'ログイン'
+  end
+  
   describe '投稿画面(new_diary_path)のテスト' do
     before do
       visit new_diary_path
@@ -28,3 +39,4 @@ require 'rails_helper'
       end
     end
   end
+end
