@@ -13,6 +13,20 @@ describe 'ユーザログイン後のテスト' do
     click_button 'ログイン'
   end
   
+  describe 'ヘッダーのテスト' do
+    context 'リンクの内容を確認' do
+      subject { current_path }
+      
+      it '投稿一覧を押すと、投稿一覧画面に遷移する' do
+        diaries_link = find_all('a')[1].native.inner_text
+        diaries_link = diaries_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link diaries_link
+        is_expected.to eq '/diaries'
+      end
+    end
+  end
+  
+  
   describe '投稿画面(new_diary_path)のテスト' do
     before do
       visit new_diary_path
