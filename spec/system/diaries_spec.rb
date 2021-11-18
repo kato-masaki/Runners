@@ -23,6 +23,12 @@ describe 'ユーザログイン後のテスト' do
         click_link diaries_link
         is_expected.to eq '/diaries'
       end
+      it 'HOMEを押すと、自分のユーザ詳細画面に遷移する' do
+        home_link = find_all('a')[5].native.inner_text
+        home_link = home_link.gsub(/\n/, '').gsub(/\A\s*/, '').gsub(/\s*\Z/, '')
+        click_link home_link
+        is_expected.to eq '/users/' + user.id.to_s
+      end
     end
   end
   
